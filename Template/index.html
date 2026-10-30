@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Global Fuel Price Analysis | Data Analytics Project</title>
+
+    <meta name="description" content="Global Fuel Price Analysis project exploring fuel price trends, taxation, subsidies and regional variations using data analytics.">
+
+    <!-- Bootstrap CSS -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+
+    <!-- Main Template CSS -->
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #26364a;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(120deg, #eaf4ff, #ffffff);
+            padding: 100px 0;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            font-weight: 800;
+            color: #17365d;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .section-title {
+            padding-bottom: 30px;
+        }
+
+        .section-title h2 {
+            color: #17365d;
+            font-weight: 700;
+        }
+
+        .info-card {
+            background: #ffffff;
+            padding: 28px;
+            height: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+        }
+
+        .info-card i {
+            font-size: 32px;
+            color: #2d83c5;
+        }
+
+        .info-card h4 {
+            margin-top: 15px;
+            color: #17365d;
+            font-weight: 700;
+        }
+
+        .project-section {
+            padding: 75px 0;
+        }
+
+        .btn-project {
+            background: #17365d;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 8px 5px 8px 0;
+        }
+
+        .btn-project:hover {
+            background: #2d83c5;
+            color: white;
+        }
+
+        .navbar {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .navbar .sitename {
+            color: #17365d;
+            font-weight: 800;
+        }
+
+        .navbar a {
+            color: #26364a;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            color: #2d83c5;
+        }
+
+        footer {
+            background: #17365d;
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand sitename" href="#home">
+                Fuel Insights
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto gap-lg-3">
+
+                    <li class="nav-item"><a href="#home">Home</a></li>
+                    <li class="nav-item"><a href="#about">About</a></li>
+                    <li class="nav-item"><a href="#dataset">Dataset</a></li>
+                    <li class="nav-item"><a href="#methodology">Methodology</a></li>
+                    <li class="nav-item"><a href="/dashboard">Dashboard</a></li>
+                    <li class="nav-item"><a href="/story">Story</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-9">
+
+                    <h1>Global Fuel Price Analysis</h1>
+
+                    <p class="mt-4">
+                        Understanding global petrol, diesel and LPG price
+                        variations through data analytics and interactive
+                        visualizations.
+                    </p>
+
+                    <p>
+                        Explore the relationship between fuel prices,
+                        taxation policies, crude oil trends, regional
+                        differences and government subsidies.
+                    </p>
+
+                    <a href="/dashboard" class="btn-project">
+                        Explore Dashboard
+                    </a>
+
+                    <a href="/story" class="btn-project">
+                        View Data Story
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- About Project -->
+    <section class="project-section" id="about">
+        <div class="container">
+
+            <div class="section-title text-center">
+                <h2>About The Project</h2>
+                <p>Turning global fuel price data into meaningful insights</p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <p>
+                        Global Fuel Price Analysis is a data analytics
+                        project designed to study how fuel prices vary
+                        across different countries and regions.
+                    </p>
+
+                    <p>
+                        The project examines petrol, diesel and LPG prices
+                        along with taxation, subsidies, income levels and
+                        crude oil trends. Interactive dashboards and
+                        visualizations help identify patterns, compare
+                        countries and understand the factors influencing
+                        fuel prices.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Objectives -->
+    <section class="project-section" style="background:#f4f8fc;">
+        <div class="container">
+
+            <div class="section-title text-center">
+                <h2>Project Objectives</h2>
+                <p>Key questions explored through this analysis</p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <i class="bi bi-fuel-pump"></i>
+                        <h4>Fuel Price Comparison</h4>
+                        <p>
+                            Compare petrol, diesel and LPG prices
+                            across countries and geographical regions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <h4>Price Trends</h4>
+                        <p>
+                            Analyze changes in fuel prices over time
+                            and examine their relationship with crude oil.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <i class="bi bi-cash-coin"></i>
+                        <h4>Taxation & Subsidies</h4>
+                        <p>
+                            Explore how taxation policies and government
+                            subsidies relate to fuel prices.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Dataset -->
+    <section class="project-section" id="dataset">
+        <div class="container">
+
+            <div class="section-title text-center">
+                <h2>Dataset Overview</h2>
+                <p>Understanding the data used in this project</p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <h4>Geographical Information</h4>
+                        <p>Country, Region and Income Level.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <h4>Fuel Price Information</h4>
+                        <p>Petrol, Diesel and LPG prices.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <h4>Economic Information</h4>
+                        <p>Crude oil prices, taxes and subsidy levels.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Methodology -->
+    <section class="project-section" id="methodology"
+        style="background:#f4f8fc;">
+
+        <div class="container">
+
+            <div class="section-title text-center">
+                <h2>Project Methodology</h2>
+                <p>From raw data to interactive insights</p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-3">
+                    <div class="info-card">
+                        <h4>01. Data Collection</h4>
+                        <p>Working with global fuel price data.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="info-card">
+                        <h4>02. Data Preparation</h4>
+                        <p>Preparing and organizing the dataset.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="info-card">
+                        <h4>03. Data Visualization</h4>
+                        <p>Creating charts, comparisons and dashboards.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="info-card">
+                        <h4>04. Insights</h4>
+                        <p>Interpreting trends and analytical findings.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Dashboard and Story -->
+    <section class="project-section" id="visualizations">
+        <div class="container">
+
+            <div class="section-title text-center">
+                <h2>Explore Visualizations</h2>
+                <p>Interact with the project's Tableau visualizations</p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-6">
+                    <div class="info-card">
+                        <i class="bi bi-bar-chart-line"></i>
+                        <h4>Interactive Dashboard</h4>
+                        <p>
+                            Explore global fuel price comparisons,
+                            regional trends and taxation indicators
+                            through an interactive Tableau dashboard.
+                        </p>
+                        <a href="/dashboard" class="btn-project">
+                            Open Dashboard
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="info-card">
+                        <i class="bi bi-book"></i>
+                        <h4>Data Story</h4>
+                        <p>
+                            Discover the important patterns and insights
+                            found through the analysis of global fuel
+                            prices and economic indicators.
+                        </p>
+                        <a href="/story" class="btn-project">
+                            Explore Story
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Technologies -->
+    <section class="project-section" style="background:#f4f8fc;">
+        <div class="container">
+
+            <div class="section-title text-center">
+                <h2>Technologies Used</h2>
+                <p>Tools used to develop this project</p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-3">
+                    <div class="info-card text-center">
+                        <h4>Python</h4>
+                        <p>Data processing and web integration</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="info-card text-center">
+                        <h4>Tableau</h4>
+                        <p>Interactive dashboards and stories</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="info-card text-center">
+                        <h4>Flask</h4>
+                        <p>Web application development</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="info-card text-center">
+                        <h4>HTML & CSS</h4>
+                        <p>Website structure and styling</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h5>Global Fuel Price Analysis</h5>
+            <p>Data Analytics Project | SmartBridge</p>
+            <p>Developed as an academic project</p>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+</body>
+</html>
